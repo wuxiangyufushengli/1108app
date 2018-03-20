@@ -1,5 +1,6 @@
 var express=require('express');
 var app=express();
+var cros=require('cors')
 var appRouter=require('./appRouter');
 var bodyParser=require('body-parser');
 var cooikeParsr=require('cookie-parser');
@@ -48,7 +49,7 @@ io.on('connection', function(socket) {
 
 
 
-
+app.use(cros());
 app.use(bodyParser.json());
 app.use(cooikeParsr());
 app.use(bodyParser.urlencoded({ extended: false }))

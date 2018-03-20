@@ -1,5 +1,8 @@
 import axios from 'axios';
+const base_url='http://localhost:5000';
+//const base_url=''
 export default function ajax(url = '', data = {}, type = 'GET') {
+    url=base_url+url
     if (type === 'GET') {
         // 准备url query参数数据
         let dataStr = '' //数据拼接字符串
