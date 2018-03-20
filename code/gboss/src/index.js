@@ -1,17 +1,24 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import {Button} from 'antd-mobile'
 import {BrowserRouter,Route,Switch} from 'react-router-dom';
-import Register from './components/register/register';
-import Login from './components/login/login';
-import Dashboard from './components/dashboard/dashboard';
+import {store} from './redux/store';
+import {Provider} from 'react-redux';
+import './components/index.less'
+import './text/text'
+import Register from './containers/register/register';
+import Login from './containers/login/login';
+import Dashboard from './containers/dashboard/dashboard';
 
 
-ReactDOM.render((<BrowserRouter>
-    <Switch>
-        <Route path='/register' component={Register}/>
-        <Route path='/login' component={Login}/>
-        <Route path='/dashboard' component={Dashboard}/>
+ReactDOM.render(
+    (
+        <Provider store={store}>
+            <BrowserRouter>
+                <Switch>
+                    <Route path='/register' component={Register}/>
+                    <Route path='/login' component={Login}/>
+                    <Route  component={Dashboard}/>
 
-    </Switch>
-  </BrowserRouter>),document.getElementById('root'))
+                </Switch>
+            </BrowserRouter>
+        </Provider>),document.getElementById('root'))
